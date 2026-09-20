@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ToxiShield Admin</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#020617,#0b1120,#020617);
+color:#e5e7eb;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+display:flex;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 25px 50px rgba(0,0,0,0.6);
+}
+
+/* LEFT PANEL */
+
+.left-panel{
+flex:1;
+padding:70px;
+position:relative;
+background:linear-gradient(160deg,#020617,#0b1120);
+overflow:hidden;
+}
+
+/* SCANNING LINE */
+
+.left-panel::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:2px;
+
+background:linear-gradient(
+90deg,
+transparent,
+#ef4444,
+transparent
+);
+
+opacity:0.6;
+
+animation:scanLine 5s linear infinite;
+
+}
+
+@keyframes scanLine{
+
+0%{
+top:-10%;
+}
+
+100%{
+top:110%;
+}
+
+}
+
+/* CYBER GRID */
+
+.cyber-grid{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(rgba(239,68,68,0.08) 1px,transparent 1px),
+linear-gradient(90deg,rgba(239,68,68,0.08) 1px,transparent 1px);
+
+background-size:40px 40px;
+
+opacity:0.6;
+
+animation:gridMove 18s linear infinite;
+}
+
+@keyframes gridMove{
+0%{background-position:0 0;}
+100%{background-position:0 40px;}
+}
+
+/* BRAND */
+
+.brand-block{
+position:relative;
+margin-bottom:50px;
+z-index:2;
+}
+
+.shield{
+width:60px;
+height:60px;
+border-radius:14px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(239,68,68,0.15);
+border:1px solid rgba(239,68,68,0.4);
+
+margin-bottom:15px;
+}
+
+.shield i{
+font-size:26px;
+color:#ef4444;
+}
+
+.cyber-bg{
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,
+rgba(239,68,68,0.35) 0%,
+rgba(239,68,68,0.12) 30%,
+transparent 70%);
+top:-150px;
+left:-150px;
+filter:blur(40px);
+}
+
+.brand-title{
+font-size:44px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.tagline{
+color:#f87171;
+font-size:14px;
+margin-top:5px;
+}
+
+/* INFO SECTION */
+
+.cyber-info{
+position:relative;
+z-index:2;
+}
+
+.cyber-info h2{
+font-size:26px;
+color:#f87171;
+margin-bottom:15px;
+}
+
+.cyber-info p{
+line-height:1.7;
+color:#9ca3af;
+margin-bottom:30px;
+}
+
+/* FEATURES */
+
+.features{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.feature{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:15px;
+}
+
+.feature i{
+color:#ef4444;
+background:rgba(239,68,68,0.15);
+padding:10px;
+border-radius:10px;
+}
+
+/* PARTICLES */
+
+.data-particles{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.data-particles span{
+position:absolute;
+width:3px;
+height:3px;
+
+background:#ef4444;
+
+border-radius:50%;
+
+opacity:0.5;
+
+animation:particleMove 12s linear infinite;
+}
+
+@keyframes particleMove{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:0.8;
+}
+
+100%{
+transform:translateY(-600px);
+opacity:0;
+}
+
+}
+
+/* RIGHT PANEL */
+
+.right-panel{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#020617;
+}
+
+/* LOGIN CARD */
+
+.login-card{
+
+width:350px;
+
+padding:40px;
+
+border-radius:12px;
+
+background:#020617;
+
+border:1px solid rgba(239,68,68,0.15);
+
+box-shadow:
+0 0 20px rgba(239,68,68,0.08),
+0 0 40px rgba(0,0,0,0.7);
+
+}
+
+.login-card h3{
+text-align:center;
+margin-bottom:30px;
+font-size:22px;
+}
+
+/* INPUT */
+
+.input-box{
+position:relative;
+margin-bottom:20px;
+}
+
+.input-box input{
+
+width:100%;
+
+padding:12px 40px;
+
+border-radius:30px;
+
+border:1px solid #1f2937;
+
+background:#020617;
+
+color:white;
+
+outline:none;
+
+transition:0.3s;
+
+}
+
+.input-box input:focus{
+border-color:#ef4444;
+box-shadow:0 0 8px rgba(239,68,68,0.3);
+}
+
+.input-box i{
+
+position:absolute;
+
+top:50%;
+left:15px;
+
+transform:translateY(-50%);
+
+color:#ef4444;
+
+}
+
+.input-box .toggle{
+right:15px;
+left:auto;
+cursor:pointer;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn{
+
+width:100%;
+
+padding:12px;
+
+border:none;
+
+border-radius:30px;
+
+background:linear-gradient(90deg,#ef4444,#f87171);
+
+color:white;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.login-btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 20px rgba(239,68,68,0.35);
+
+}
+
+.error-msg{
+    background: rgba(239,68,68,0.1);
+    color: #ef4444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid rgba(239,68,68,0.3);
+
+    display: none; 
+}
+
+/* FOOTER */
+
+.footer-text{
+margin-top:20px;
+font-size:12px;
+text-align:center;
+color:#6b7280;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="cyber-bg"></div>
+        <div class="cyber-grid"></div>
+        <div class="ai-glow"></div>
+        <div class="scan-ring"></div>
+        <div class="center-glow"></div>
+
+        <!-- Floating particles -->
+        <div class="data-particles">
+            <span style="left:20%"></span>
+            <span style="left:40%"></span>
+            <span style="left:60%"></span>
+            <span style="left:80%"></span>
+        </div>
+
+        <!-- Brand Section -->
+        <div class="brand-block">
+
+            <div class="shield">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h1 class="brand-title">ToxiShield</h1>
+
+            <p class="tagline">
+                AI Cyberbullying Detection System
+            </p>
+
+        </div>
+
+        <!-- Info Section -->
+        <div class="cyber-info">
+
+            <h2>Protecting Digital Conversations</h2>
+
+            <p>
+                ToxiShield uses advanced AI models to analyze social media
+                comments, identify toxic behavior and automatically blur
+                harmful content before it spreads across platforms.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI Toxic Comment Detection</span>
+                </div>
+
+                <div class="feature">
+                    <i class="fa-solid fa-eye-slash"></i>
+                    <span>Automatic Content Blurring</span>
+                </div>
+
+                <div class="feature">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Admin Monitoring Dashboard</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <h3>Admin Login</h3>
+
+            <form method="POST">
+
+                {% if error %}
+                <div id="error-msg" class="error-msg" style="display:block;">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input 
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                    >
+
+                    <i 
+                        class="fa-solid fa-eye toggle"
+                        id="toggleIcon"
+                        onclick="togglePassword()"
+                    ></i>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login to Dashboard
+                </button>
+
+            </form>
+
+            <p class="footer-text">
+                AI Moderation System • Admin Access Only
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function togglePassword() {
+
+    const passwordInput = document.getElementById("password");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    if (passwordInput.type === "password") {
+
+        passwordInput.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+
+    } else {
+
+        passwordInput.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+
+    }
+
+}
+
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", () => {
+        document.getElementById("error-msg").style.display = "none";
+    });
+});
+
+</script>
+
+</body>
+</html>

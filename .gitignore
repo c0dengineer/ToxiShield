@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Local application data
+*.db
+*.sqlite
+*.sqlite3
+*.log
+Extension/admin/exports/
+
+# Local model weights and training checkpoints
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+Extension/toxishield_model/
+
+# Test and coverage output
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local evaluation scripts and generated results
+Evaluation/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
