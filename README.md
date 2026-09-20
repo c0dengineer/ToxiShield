@@ -31,9 +31,6 @@ The dashboard is optional. Detection continues to use the hosted API when the lo
 ToxiShield/
 |-- Dataset/
 |   `-- finetune_dataset.csv
-|-- Docs/
-|-- Evaluation/
-|   `-- evaluate.py
 |-- Extension/
 |   |-- admin/
 |   |   |-- admin_app.py
