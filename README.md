@@ -36,6 +36,7 @@ ToxiShield/
 |   |   |-- admin_app.py
 |   |   |-- create_db.py
 |   |   `-- templates/
+|   |-- icons/
 |   |-- content.js
 |   |-- manifest.json
 |   |-- train.py
